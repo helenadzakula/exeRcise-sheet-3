@@ -12,6 +12,7 @@ library(dplyr)
 library(tidyverse)
 library(janitor)
 library(ggplot2)
+library(knitr)
 
 ```
 
@@ -271,7 +272,7 @@ f)  Create a meaningful plot / figure with the dataset. Make sure to
     provide a figure caption (via the chunk options / Rmarkdown) and
     correctly label the figure.
 
-```{r lifeexp_plot, fig.cap="Development of Life Expectancy"}
+```{r lifeexp_plot, fig.cap="life_ex_plot"}
 
 filtered_data <- life_subset %>%
   filter(Year >= 1950, Year <= 2009)
