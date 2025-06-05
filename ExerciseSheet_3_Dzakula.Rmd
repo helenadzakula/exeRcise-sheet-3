@@ -208,6 +208,7 @@ ggplot(Toy_Story, aes(x = factor(film, levels = film), y = metacritic, fill = fi
 ```
 I notice that the metacritic scores are always pretty much the same comparing the 4 parts of the series.
 
+
 ## Exercise 4: Open Analysis (4 points)
 
 This exercise is a bit more open-ended. You can choose any dataset from
@@ -216,7 +217,7 @@ determining the research question yourself.
 
 a)  Go to <https://github.com/owid/owid-datasets/tree/master/datasets>
     and choose a dataset that interests you. You can have a look at
-    <https://ourworldindata.org/> to gather some inspiration.
+    <https://ourworldindata.org/> to gather some inspiration. - done
 b)  Download the dataset and track it in git.
 c)  Put the name / title of the dataset and a link to it below.
 
