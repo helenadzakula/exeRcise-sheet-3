@@ -76,7 +76,7 @@ c)  Regularly push your latest changes to GitHub again and especially do
 ## Exercise 3: Pixar Films (4 Points)
 
 Download the `pixar_films` and `public_response` datasets from the
-GitHub repository and track them in git.
+GitHub repository and track them in git. - done
 
 Link:
 <https://github.com/rfordatascience/tidytuesday/tree/main/data/2025/2025-03-11>
