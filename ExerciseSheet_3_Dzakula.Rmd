@@ -223,16 +223,14 @@ b)  Download the dataset and track it in git.
 
 ```{r}
 
-air_pollution_url <- "https://github.com/owid/owid-datasets/blob/master/datasets/Air%20Pollutant%20Emissions%20-%20OECD/Air%20Pollutant%20Emissions%20-%20OECD.csv"
-
-download.file(air_pollution_url, destfile = "data/pollution.csv")
+life_ex <- read.csv("data/life_ex.csv")
 
 ```
 
 c)  Put the name / title of the dataset and a link to it below.
 
--   Dataset Name: Air Pollutant Emissions - OECD.csv
--   Link: <https://github.com/owid/owid-datasets/blob/master/datasets/Air%20Pollutant%20Emissions%20-%20OECD/Air%20Pollutant%20Emissions%20-%20OECD.csv>
+-   Dataset Name: Life Expectancy at Birth (both genders) – Clio Infra.csv
+-   Link: <https://github.com/owid/owid-datasets/blob/master/datasets/Life%20Expectancy%20at%20Birth%20(both%20genders)%20–%20Clio%20Infra/Life%20Expectancy%20at%20Birth%20(both%20genders)%20–%20Clio%20Infra.csv>
 
 d)  Come up with a (research) question you want to answer with the data
     and briefly explain why you believe this is an interesting question
@@ -246,6 +244,13 @@ e)  Use R to answer your chosen question. Please limit your analysis to
     the functions and techniques we have covered so far in the course.
     You are **not expected** to use advanced statistical models or
     external packages which haven't been introduced.
+    
+```{r}
+
+
+
+```
+
 f)  Create a meaningful plot / figure with the dataset. Make sure to
     provide a figure caption (via the chunk options / Rmarkdown) and
     correctly label the figure.
