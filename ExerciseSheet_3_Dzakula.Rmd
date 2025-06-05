@@ -157,6 +157,19 @@ c)  Load the `public_response` dataframe into R. Convert the
     highest score. Combine `public_response` with the `pixar_films`
     dataset using an appropriate merge variable.
 
+```{r}
+
+public_response <- read.csv("data/public_response.csv")
+
+public_response <- public_response %>%
+  mutate(cinema_score = factor(cinema_score, 
+                               levels = c("A-", "A", "A+"), 
+                               ordered = TRUE))
+
+combined_data <- left_join(pixar_films, public_response, by = "film")
+
+```
+
 d)  Choose one of the variables representing the public response and
     create a bar plot for the films belonging to a series. Here are the
     details of the plot:
