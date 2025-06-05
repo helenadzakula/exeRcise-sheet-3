@@ -6,6 +6,14 @@ date: "`r Sys.Date()`"
 output: distill::distill_article
 ---
 
+```{r}
+
+library(dplyr)
+library(tidyverse)
+library(janitor)
+library(ggplot2)
+
+```
 
 ## General Remarks
 
@@ -76,10 +84,20 @@ c)  Regularly push your latest changes to GitHub again and especially do
 ## Exercise 3: Pixar Films (4 Points)
 
 Download the `pixar_films` and `public_response` datasets from the
-GitHub repository and track them in git. - done
+GitHub repository and track them in git.
 
 Link:
 <https://github.com/rfordatascience/tidytuesday/tree/main/data/2025/2025-03-11>
+
+```{r}
+
+pixar_url <- "https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-03-11/pixar_films.csv"
+public_response_url <- "https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-03-11/public_response.csv"
+
+download.file(pixar_url, destfile = "data/pixar_films.csv")
+download.file(public_response_url, destfile = "data/public_response.csv")
+
+```
 
 For small datasets like these adding them to git is not a problem.
 
@@ -87,6 +105,15 @@ a)  Load the `pixar_films` dataset into R. Clean the dataset by removing
     films without a title. Inspect the variable `film_rating`. What are
     the possible values and what do they mean? Create a factor variable
     for the film rating. Why is this appropriate?
+    
+```{r}
+
+pixar_films <- read.csv("data/pixar_films.csv")
+
+pixar_films <- pixar_films %>% 
+  filter(!is.na(film))
+
+```
 
 <!-- -->
 
