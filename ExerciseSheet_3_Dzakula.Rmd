@@ -246,8 +246,6 @@ e)  Use R to answer your chosen question. Please limit your analysis to
     
 ```{r}
 
-life_ex$Life.Expectancy.at.Birth..both.genders...Clio.Infra.
-
 life_ex <- life_ex %>%
   rename(life_ex_birth = Life.Expectancy.at.Birth..both.genders...Clio.Infra.)
 
@@ -272,6 +270,28 @@ The results show, that the biggest *change* in life expectancy of the citizens h
 f)  Create a meaningful plot / figure with the dataset. Make sure to
     provide a figure caption (via the chunk options / Rmarkdown) and
     correctly label the figure.
+
+```{r lifeexp_plot, fig.cap="Development of Life Expectancy"}
+
+filtered_data <- life_subset %>%
+  filter(Year >= 1950, Year <= 2009)
+
+ggplot(filtered_data, aes(x = Year, 
+                        y = life_ex_birth, 
+                        color = Entity)) +
+  geom_line(size = 1.1) +
+  scale_color_manual(values = c("Germany" = "#a2d5c6", 
+                                "Croatia" = "#5c3c92", 
+                                "United States" = "darkgreen")) +
+  labs(title = "Life Expectancy in Germany, Croatia & USA between 1950 and 2009",
+       x = "Year",
+       y = "Life Expectancy at Birth",
+       color = "Country") +
+  theme_minimal()
+
+```
+With the insight from the graph \@ref(fig:lifeexp_plot) we can see, that while Croatia had the most steep increase of life expectancy, Germany overtook the US in the 80s. However, all three countries showed an increase in life expectancy.
+
 
 ## Final Note
 
