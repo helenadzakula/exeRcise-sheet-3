@@ -170,6 +170,7 @@ combined_data <- left_join(pixar_films, public_response, by = "film")
 
 ```
 
+
 d)  Choose one of the variables representing the public response and
     create a bar plot for the films belonging to a series. Here are the
     details of the plot:
@@ -184,6 +185,28 @@ d)  Choose one of the variables representing the public response and
 
     What do you notice when comparing the scores of the films in a
     series? Do you see any patterns?
+    
+```{r}
+
+# Toy Story
+
+series_name <- "Toy Story"
+
+Toy_Story <- combined_data %>%
+  filter(str_detect(film, fixed(series_name))) %>%
+  arrange(release_date)
+
+
+ggplot(Toy_Story, aes(x = factor(film, levels = film), y = metacritic, fill = film)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title = "Metacritic-scores of the Toy Story Movies:",
+       x = "Toy Story 1 - 4",
+       y = "Cinema Score") +
+  theme_minimal() +
+  theme(legend.position = "none")
+
+```
+I notice that the metacritic scores are always pretty much the same comparing the 4 parts of the series.
 
 ## Exercise 4: Open Analysis (4 points)
 
