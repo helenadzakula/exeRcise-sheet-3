@@ -237,8 +237,7 @@ d)  Come up with a (research) question you want to answer with the data
     within one sentence. It should be a question that can be answered
     with the dataset and using R.
     
-My research question is: Which country has the overall most emissions of carbon monoxide between 1990 and 2015? <br>
-Of course this must be seen in relation to population an pollution per capita but it is a very valueable information to locate the main drivers of pollution.
+My research question is: In which country - Germany, Croatia or the US - did the life expectancy of the citizens rise the most between 1950 and 2009? <br>
 
 e)  Use R to answer your chosen question. Please limit your analysis to
     the functions and techniques we have covered so far in the course.
@@ -247,9 +246,28 @@ e)  Use R to answer your chosen question. Please limit your analysis to
     
 ```{r}
 
+life_ex$Life.Expectancy.at.Birth..both.genders...Clio.Infra.
 
+life_ex <- life_ex %>%
+  rename(life_ex_birth = Life.Expectancy.at.Birth..both.genders...Clio.Infra.)
+
+selected_countries <- c("Germany", "Croatia", "United States")
+
+life_subset <- life_ex %>%
+  filter(Entity %in% selected_countries)
+
+life_change <- life_subset %>%
+  filter(Year %in% c(1950, 2009)) %>%
+  select(Entity, Year, life_ex_birth) %>%
+  pivot_wider(names_from = Year, values_from = life_ex_birth) %>%
+  mutate(change = `2009` - `1950`) %>%
+  arrange(desc(change))
+
+print(life_change)
 
 ```
+
+The results show, that the biggest *change* in life expectancy of the citizens happened in croatia (almost 15 years difference). However, Croatia still had the lowest life expectancy of the selected three countries in 2009. This could be due to the fact that life expectancy does not continue to grow, but has a natural limit. Croatia has adapted accordingly to the other countries and is approaching this age limit - it had just not yet reached it at the time of the survey.
 
 f)  Create a meaningful plot / figure with the dataset. Make sure to
     provide a figure caption (via the chunk options / Rmarkdown) and
